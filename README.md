@@ -1,5 +1,6 @@
 # Python-orders
 
+This github repo is made to collect all of the ordered projects from the fiverr page.   
 
 ## Order 25_11_2020
 
