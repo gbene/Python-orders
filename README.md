@@ -3,7 +3,7 @@
 
 # Order 25_11_2020
 
-Metashape professional:
+Create python scripts for metashape professional. In particular:
 
 1. A script that counts the total number of markers detected in all of your photos
 2. A script that applies different masks for different sets of photos.
