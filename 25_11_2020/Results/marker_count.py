@@ -24,14 +24,14 @@ n_cameras = len(chunk.cameras) #number of cameras
 There isn't a direct way to count markers in every image. To resolve this
 problem we can use the function detectMarkers for every image. Normally this
 function is applied to the whole chunk but the problem is that same markers
-are grouped togeather and so we do not rappresent the total number of detected
-markers. To avoid this annoince we can apply the function separately to every
+are grouped together and so we do not rappresent the total number of detected
+markers. To avoid this annoiance we can apply the function separately to every
 image. In this way every marker found is considered as separate.
 After that we can calculate the total number of markers simply by the length of
 the list of markers present in the chunk.
 
 This process leaves a very messy workplace so after the counting all of the
-markers are removed and then detected again this time considering the whole
+markers, these are removed and then detected again this time considering the whole
 chunk.
 
 With this solution at the end you will have the total numers of detected markers
