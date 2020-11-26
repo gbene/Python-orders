@@ -46,4 +46,8 @@ for camera in cameras:
 total_markers = len(chunk.markers)
 chunk.remove(chunk.markers)
 chunk.detectMarkers()
-print('found {} markers in {} images (1:{} ratio)'.format(total_markers,n_cameras,total_markers/n_cameras))
+
+if total_markers >= 135:
+    print("The number of expected GCP'2 has been detected. You can continue with the next round.")
+else:
+    print("NOTE: The number of GCP's detected is different from 135.") 
