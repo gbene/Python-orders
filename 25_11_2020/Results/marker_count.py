@@ -45,7 +45,7 @@ for camera in cameras:
     chunk.detectMarkers(cameras=camera)
 total_markers = len(chunk.markers)
 chunk.remove(chunk.markers)
-chunk.detectMarkers()
+chunk.detectMarkers(tolerance=20,noparity=True)
 
 if total_markers >= 135:
     print("The number of expected GCP'2 has been detected. You can continue with the next round.")
