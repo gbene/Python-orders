@@ -28,9 +28,9 @@ os.chdir(img_path) #change directory to that path
 # EXECUTION
 
 
-chunk.importMasks(path='Links_Initial.jpg',operation=MaskOperationReplacement, tolerance=tol,cameras=cameras[0])
-chunk.importMasks(path='Links_Regular.jpg',operation=MaskOperationReplacement,tolerance=tol,cameras=cameras[1:21])
-chunk.importMasks(path='Midden_Initial.jpg',operation=MaskOperationReplacement,tolerance=tol,cameras=cameras[21])
-chunk.importMasks(path='Midden_Regular.jpg',operation=MaskOperationReplacement,tolerance=tol,cameras=cameras[22:42])
-chunk.importMasks(path='Rechts_Initial.jpg',operation=MaskOperationReplacement,tolerance=tol,cameras=cameras[42])
-chunk.importMasks(path='Rechts_Regular.jpg',operation=MaskOperationReplacement,tolerance=tol,cameras=cameras[43:64])
+chunk.importMasks(path='Links_Initial.jpg',source=MaskSourceBackground,operation=MaskOperationReplacement, tolerance=tol,cameras=cameras[0])
+chunk.importMasks(path='Links_Regular.jpg',source=MaskSourceBackground,operation=MaskOperationReplacement,tolerance=tol,cameras=cameras[1:21])
+chunk.importMasks(path='Midden_Initial.jpg',source=MaskSourceBackground,operation=MaskOperationReplacement,tolerance=tol,cameras=cameras[21])
+chunk.importMasks(path='Midden_Regular.jpg',source=MaskSourceBackground,operation=MaskOperationReplacement,tolerance=tol,cameras=cameras[22:42])
+chunk.importMasks(path='Rechts_Initial.jpg',source=MaskSourceBackground,operation=MaskOperationReplacement,tolerance=tol,cameras=cameras[42])
+chunk.importMasks(path='Rechts_Regular.jpg',source=MaskSourceBackground,operation=MaskOperationReplacement,tolerance=tol,cameras=cameras[43:64])
