@@ -12,7 +12,8 @@ ref_file = mt.app.getOpenFileName("Choose reference coordinate file")
 
 # Loop that cicles every marker present and counts the respective projections
 for marker in markers:
-	total_targets += len(marker.projections)
+	if 'target' in marker.label:
+		total_targets += len(marker.projections)
 
 print("Total detected targets: {}".format(len(markers)))
 
