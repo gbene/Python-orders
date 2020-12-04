@@ -24,5 +24,4 @@ if total_targets == 135:
 else:
 	print("NOTE: The number of GCPs detected is different from 135")
 
-crs = Metashape.CoordinateSystem('LOCAL_CS["Local Coordinates (m)",LOCAL_DATUM["Local Datum",0],UNIT["meter",0.001,AUTHORITY["EPSG","1025"]]]')
 chunk.importReference(path=ref_file, format=Metashape.ReferenceFormatCSV, columns='nxyz', crs = 'Local Coordinates (m)', delimiter=';')
