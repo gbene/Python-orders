@@ -36,7 +36,7 @@ x_delta = x_uplim-x_lowlim
 # find points that have local coordinates less than 0.1, 0.9 (x) and 1, 5.5 (y)
 for point in points:
     geo_points = crs.project(T.mulp(point.coord[:3])) #convert from internal system to local
-    if geo_points[0]<= x_lowlim or geo_points[0]>= x_uplim or geo_points[1]<= y_lowlim or geo_points[1]>= y_uplim or geo_points[2]>= z_uplim or geo_points[2]<= z_lowlim:
+    if geo_points[0]<= x_lowlim or geo_points[0]>= x_uplim or geo_points[1]<= y_lowlim or geo_points[1]>= y_uplim or geo_points[2]<=0 or geo_points[2]>=1:
         None
     else:
         coord = T*point.coord #transform coordinates with the matrix
@@ -48,8 +48,7 @@ for point in points:
 mini,mini_x = mt.Vector([min(x),min(y),min(z)]), mt.Vector([min(x)+x_delta,min(y),min(z)]) #minimum values of x,y and z and x opposite
 maxi,maxi_x = mt.Vector([max(x),max(y),max(z)]), mt.Vector([max(x)-x_delta,max(y),max(z)])#maximum values of x,y and z and x opposite
 
-limits = maxi-mini #bounding box limits
-center = (maxi+mini)/2 #bounding box center
+
 
 # this is horrible!
 
@@ -71,8 +70,14 @@ for marker in chunk.markers:
 
 chunk.updateTransform()
 
-chunk.region.center=T.inv().mulp(center) #set the center of bounding box
-chunk.region.size=limits/T.scale() #set the dimensions of the bounding box
-chunk.region.rot = T.rotation().t() #flip x and y. This is stupid!!
+center = (maxi+mini)/2 #bounding box center
+chunk.region.center=chunk.transform.matrix.inv().mulp(center) #set the center of bounding box
+chunk.region.rot = chunk.transform.matrix.rotation().t()
+
+limits = maxi-mini #bounding box limits
+limits[2] = z_uplim-z_lowlim
+chunk.region.size=limits/chunk.transform.matrix.scale() #set the dimensions of the bounding box
+#chunk.region.rot = T.rotation().t() #rotate region to level
+
 
 print(chunk.region.size)
