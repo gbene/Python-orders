@@ -48,7 +48,7 @@ for point in points:
 mini,mini_x = mt.Vector([min(x),min(y),min(z)]), mt.Vector([min(x)+x_delta,min(y),min(z)]) #minimum values of x,y and z and x opposite
 maxi,maxi_x = mt.Vector([max(x),max(y),max(z)]), mt.Vector([max(x)-x_delta,max(y),max(z)])#maximum values of x,y and z and x opposite
 
-
+center = (maxi+mini)/2 #bounding box center
 
 # this is horrible!
 
@@ -70,7 +70,7 @@ for marker in chunk.markers:
 
 chunk.updateTransform()
 
-center = (maxi+mini)/2 #bounding box center
+
 chunk.region.center=chunk.transform.matrix.inv().mulp(center) #set the center of bounding box
 chunk.region.rot = chunk.transform.matrix.rotation().t()
 
