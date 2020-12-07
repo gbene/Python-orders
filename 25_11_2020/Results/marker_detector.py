@@ -1,6 +1,3 @@
-
-# IMPORTS
-
 import Metashape as mt
 
 # VARIABLES
@@ -12,8 +9,7 @@ ref_file = mt.app.getOpenFileName("Choose reference coordinate file")
 
 # Loop that cicles every marker present and counts the respective projections
 for marker in markers:
-	if 'target' in marker.label:
-		total_targets += len(marker.projections)
+	total_targets += len(marker.projections)
 
 print("Total detected targets: {}".format(len(markers)))
 
@@ -24,4 +20,4 @@ if total_targets == 135:
 else:
 	print("NOTE: The number of GCPs detected is different from 135")
 
-chunk.importReference(path=ref_file, format=Metashape.ReferenceFormatCSV, columns='nxyz', crs = 'Local Coordinates (m)', delimiter=';')
+chunk.importReference(path=ref_file, format=Metashape.ReferenceFormatCSV, columns='nxyz', delimiter=';')
