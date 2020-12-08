@@ -36,7 +36,7 @@ x_delta = x_uplim-x_lowlim
 # find points that have local coordinates less than 0.1, 0.9 (x) and 1, 5.5 (y)
 for point in points:
     geo_points = crs.project(T.mulp(point.coord[:3])) #convert from internal system to local
-    if geo_points[0]<= x_lowlim or geo_points[0]>= x_uplim or geo_points[1]<= y_lowlim or geo_points[1]>= y_uplim or geo_points[2]<=0 or geo_points[2]>=1:
+    if geo_points[0]< x_lowlim or geo_points[0]>x_uplim or geo_points[1]< y_lowlim or geo_points[1]> y_uplim or geo_points[2]<0 or geo_points[2]>1:
         None
     else:
         coord = T*point.coord #transform coordinates with the matrix
