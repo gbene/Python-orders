@@ -25,9 +25,9 @@ tol = mt.app.getInt("Choose tolerance value for masking") #ask for the masking t
 # EXECUTION
 
 
-chunk.importMasks(path=os.path.join(img_path,'Links_Initial.jpg'),source=Metashape.MaskSource.MaskSourceFile,operation=Metashape.MaskOperation.MaskOperationReplacement,tolerance=tol,cameras=cameras[0])
-chunk.importMasks(path=os.path.join(img_path,'Links_Regular.jpg'),source=Metashape.MaskSource.MaskSourceFile,operation=Metashape.MaskOperation.MaskOperationReplacement,tolerance=tol,cameras=cameras[1:21])
-chunk.importMasks(path=os.path.join(img_path,'Midden_Initial.jpg'),source=Metashape.MaskSource.MaskSourceFile,operation=Metashape.MaskOperation.MaskOperationReplacement,tolerance=tol,cameras=cameras[21])
-chunk.importMasks(path=os.path.join(img_path,'Midden_Regular.jpg'),source=Metashape.MaskSource.MaskSourceFile,operation=Metashape.MaskOperation.MaskOperationReplacement,tolerance=tol,cameras=cameras[22:42])
-chunk.importMasks(path=os.path.join(img_path,'Rechts_Initial.jpg'),source=Metashape.MaskSource.MaskSourceFile,operation=Metashape.MaskOperation.MaskOperationReplacement,tolerance=tol,cameras=cameras[42])
-chunk.importMasks(path=os.path.join(img_path,'Rechts_Regular.jpg'),source=Metashape.MaskSource.MaskSourceFile,operation=Metashape.MaskOperation.MaskOperationReplacement,tolerance=tol,cameras=cameras[43:64])
+chunk.generateMasks(path=os.path.join(img_path,'Links_Initial.jpg'),masking_mode=Metashape.MaskingMode.MaskingModeFile,mask_operation=Metashape.MaskOperation.MaskOperationReplacement,tolerance=tol,cameras=cameras[0])
+chunk.generateMasks(path=os.path.join(img_path,'Links_Regular.jpg'),masking_mode=Metashape.MaskingMode.MaskingModeFile,mask_operation=Metashape.MaskOperation.MaskOperationReplacement,tolerance=tol,cameras=cameras[1:21])
+chunk.generateMasks(path=os.path.join(img_path,'Midden_Initial.jpg'),masking_mode=Metashape.MaskingMode.MaskingModeFile,mask_operation=Metashape.MaskOperation.MaskOperationReplacement,tolerance=tol,cameras=cameras[21])
+chunk.generateMasks(path=os.path.join(img_path,'Midden_Regular.jpg'),masking_mode=Metashape.MaskingMode.MaskingModeFile,mask_operation=Metashape.MaskOperation.MaskOperationReplacement,tolerance=tol,cameras=cameras[22:42])
+chunk.generateMasks(path=os.path.join(img_path,'Rechts_Initial.jpg'),masking_mode=Metashape.MaskingMode.MaskingModeFile,mask_operation=Metashape.MaskOperation.MaskOperationReplacement,tolerance=tol,cameras=cameras[42])
+chunk.generateMasks(path=os.path.join(img_path,'Rechts_Regular.jpg'),masking_mode=Metashape.MaskingMode.MaskingModeFile,mask_operation=Metashape.MaskOperation.MaskOperationReplacement,tolerance=tol,cameras=cameras[43:64])
